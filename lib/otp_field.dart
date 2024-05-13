@@ -190,6 +190,7 @@ class _OTPTextFieldState extends State<OTPTextField> {
         focusNode: _focusNodes[index],
         obscureText: widget.obscureText,
         decoration: InputDecoration(
+          hintText:"-",
           isDense: widget.isDense,
           filled: true,
           fillColor: _otpFieldStyle.backgroundColor,
