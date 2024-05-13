@@ -129,15 +129,12 @@ class _OTPTextFieldState extends State<OTPTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: widget.width,
-      child: Row(
-        mainAxisAlignment: widget.textFieldAlignment,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: List.generate(widget.length, (index) {
-          return buildTextField(context, index);
-        }),
-      ),
+    return Row(
+      mainAxisAlignment: widget.textFieldAlignment,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: List.generate(widget.length, (index) {
+        return buildTextField(context, index);
+      }),
     );
   }
 
@@ -176,6 +173,7 @@ class _OTPTextFieldState extends State<OTPTextField> {
 
     return Container(
       width: widget.fieldWidth,
+      height: widget.fieldWidth,
       margin: EdgeInsets.only(
         right: isLast ? 0 : widget.spaceBetween,
       ),
@@ -188,9 +186,11 @@ class _OTPTextFieldState extends State<OTPTextField> {
         inputFormatters: widget.inputFormatter,
         maxLength: 1,
         focusNode: _focusNodes[index],
+        autofocus: index == 0,
         obscureText: widget.obscureText,
         decoration: InputDecoration(
           hintText:"-",
+          hintStyle: TextStyle(color: Color(0xFFB3B9C6)),
           isDense: widget.isDense,
           filled: true,
           fillColor: _otpFieldStyle.backgroundColor,
